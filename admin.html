@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bee Queen - Admin Upload Panel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-header {
+            background: linear-gradient(135deg, #e91e63, #9c27b0);
+            color: white;
+            padding: 24px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .admin-header h2 {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .admin-header p {
+            opacity: 0.85;
+            font-size: 14px;
+        }
+
+        .upload-card {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.12);
+            margin-bottom: 16px;
+        }
+
+        .upload-card h3 {
+            color: #e91e63;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #555;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #f0f0f0;
+            border-radius: 14px;
+            font-size: 15px;
+            outline: none;
+            transition: border 0.2s;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #e91e63;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .drop-zone {
+            border: 3px dashed #e91e63;
+            border-radius: 16px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s;
+            background: #fff5f8;
+        }
+
+        .drop-zone:hover, .drop-zone.dragover {
+            background: #fce4ec;
+        }
+
+        .drop-zone .drop-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .drop-zone p {
+            color: #e91e63;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .drop-zone span {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .drop-zone input[type="file"] {
+            display: none;
+        }
+
+        .file-selected {
+            background: #e8f5e9;
+            border-color: #4caf50;
+            padding: 16px;
+            text-align: center;
+            border-radius: 14px;
+            margin-top: 12px;
+            display: none;
+        }
+
+        .file-selected.show {
+            display: block;
+        }
+
+        .file-selected p {
+            color: #2e7d32;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .upload-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #e91e63, #9c27b0);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+            margin-top: 8px;
+        }
+
+        .upload-btn:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+        }
+
+        .upload-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .current-version-card {
+            background: white;
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.12);
+            margin-bottom: 16px;
+        }
+
+        .current-version-card h3 {
+            color: #e91e63;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .version-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .version-row:last-child {
+            border-bottom: none;
+        }
+
+        .version-row span:first-child {
+            color: #888;
+            font-size: 14px;
+        }
+
+        .version-row span:last-child {
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            color: #e91e63;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 14px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.12);
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- ADMIN HEADER -->
+        <div class="admin-header">
+            <img src="logo.jpg" style="width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:10px;" alt="Bee Queen Logo">
+            <h2>Admin Upload Panel</h2>
+            <p>Upload new APK version for clients</p>
+        </div>
+
+        <!-- CURRENT VERSION -->
+        <div class="current-version-card">
+            <h3>📦 Current Version Info</h3>
+            <div class="version-row">
+                <span>App Name</span>
+                <span>Bee Queen ERP</span>
+            </div>
+            <div class="version-row">
+                <span>Current Version</span>
+                <span id="currentVersion">1.0.2</span>
+            </div>
+            <div class="version-row">
+                <span>APK File</span>
+                <span>Bee Queen.apk</span>
+            </div>
+            <div class="version-row">
+                <span>Last Updated</span>
+                <span id="lastUpdated">—</span>
+            </div>
+        </div>
+
+        <!-- UPLOAD FORM -->
+        <div class="upload-card">
+            <h3>🚀 Upload New Version</h3>
+
+            <div class="form-group">
+                <label>New Version Number</label>
+                <input type="text" id="versionInput" placeholder="e.g. 1.0.2" />
+            </div>
+
+            <div class="form-group">
+                <label>What's New (one per line)</label>
+                <textarea id="changelogInput" placeholder="- Bug fixes&#10;- New feature&#10;- UI improvements"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Upload APK File</label>
+                <div class="drop-zone" id="dropZone" onclick="document.getElementById('apkFile').click()">
+                    <div class="drop-icon">📱</div>
+                    <p>Tap to select APK file</p>
+                    <span>or drag and drop here</span>
+                    <input type="file" id="apkFile" accept=".apk" onchange="onFileSelected(this)">
+                </div>
+                <div class="file-selected" id="fileSelected">
+                    <p id="fileInfo">✅ File selected</p>
+                </div>
+            </div>
+
+            <button class="upload-btn" id="uploadBtn" onclick="publishUpdate()" disabled>
+                📤 Publish Update
+            </button>
+        </div>
+
+        <!-- BACK LINK -->
+        <a href="index.html" class="back-link">👁 Preview Client Page</a>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>Bee Queen ERP Admin Panel</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // LOAD SAVED INFO
+        window.onload = () => {
+            const saved = JSON.parse(localStorage.getItem('beeQueenVersion') || '{}');
+            if (saved.version) document.getElementById('currentVersion').textContent = saved.version;
+            if (saved.date) document.getElementById('lastUpdated').textContent = saved.date;
+        };
+
+        // FILE SELECTED
+        function onFileSelected(input) {
+            const file = input.files[0];
+            if (!file) return;
+            const sizeMB = (file.size / (1024 * 1024)).toFixed(1);
+            document.getElementById('fileInfo').textContent = `✅ ${file.name} (${sizeMB} MB)`;
+            document.getElementById('fileSelected').classList.add('show');
+            document.getElementById('uploadBtn').disabled = false;
+        }
+
+        // DRAG AND DROP
+        const dropZone = document.getElementById('dropZone');
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.name.endsWith('.apk')) {
+                const input = document.getElementById('apkFile');
+                const dt = new DataTransfer();
+                dt.items.add(file);
+                input.files = dt.files;
+                onFileSelected(input);
+            } else {
+                showToast('⚠️ Please drop an APK file');
+            }
+        });
+
+        // PUBLISH UPDATE
+        function publishUpdate() {
+            const version = document.getElementById('versionInput').value.trim();
+            const file = document.getElementById('apkFile').files[0];
+
+            if (!version) { showToast('⚠️ Enter version number'); return; }
+            if (!file) { showToast('⚠️ Select an APK file'); return; }
+
+            // SAVE VERSION INFO TO LOCALSTORAGE
+            const date = new Date().toLocaleDateString('en-IN', {
+                day: 'numeric', month: 'long', year: 'numeric'
+            });
+            localStorage.setItem('beeQueenVersion', JSON.stringify({ version, date }));
+
+            // UPDATE UI
+            document.getElementById('currentVersion').textContent = version;
+            document.getElementById('lastUpdated').textContent = date;
+
+            // UPDATE CLIENT PAGE VERSION
+            localStorage.setItem('clientVersion', version);
+            localStorage.setItem('clientDate', date);
+
+            const changelog = document.getElementById('changelogInput').value.trim();
+            if (changelog) localStorage.setItem('changelog', changelog);
+
+            showToast('✅ Version info updated! Now copy the APK to this folder as "Bee Queen.apk"');
+
+            setTimeout(() => {
+                showToast('📁 Replace "Bee Queen.apk" in this folder with the new file');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
