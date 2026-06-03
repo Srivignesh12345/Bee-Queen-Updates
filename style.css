@@ -325,3 +325,152 @@ body {
     border-radius: 10px;
     transition: width 0.3s;
 }
+
+/* VERSION COMPARISON */
+.comparison-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.12);
+}
+
+.comparison-card h3 {
+    color: #e91e63;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.compare-table thead tr {
+    background: linear-gradient(135deg, #e91e63, #9c27b0);
+    color: white;
+}
+
+.compare-table th {
+    padding: 12px 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.compare-table th:first-child {
+    text-align: left;
+    border-radius: 10px 0 0 0;
+}
+
+.compare-table th:last-child {
+    border-radius: 0 10px 0 0;
+}
+
+.compare-table tbody tr {
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.compare-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.compare-table tbody tr:hover {
+    background: #fff5f8;
+}
+
+.compare-table td {
+    padding: 11px 10px;
+    text-align: center;
+    color: #555;
+}
+
+.compare-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+}
+
+.latest-col {
+    background: #fff0f5;
+    color: #e91e63 !important;
+    font-weight: 700 !important;
+}
+
+/* PREMIUM CONCLUSION */
+.conclusion-card {
+    background: linear-gradient(135deg, #e91e63, #9c27b0);
+    border-radius: 24px;
+    padding: 32px 24px;
+    margin-bottom: 16px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.35);
+}
+
+.conclusion-icon {
+    font-size: 52px;
+    margin-bottom: 14px;
+}
+
+.conclusion-card h3 {
+    color: white;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.conclusion-card p {
+    color: rgba(255,255,255,0.88);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.conclusion-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    background: rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 20px;
+}
+
+.stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-value {
+    color: white;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.stat-label {
+    color: rgba(255,255,255,0.75);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.3);
+}
+
+.conclusion-tagline {
+    color: rgba(255,255,255,0.95) !important;
+    font-size: 15px !important;
+    font-weight: 600;
+    margin-bottom: 0 !important;
+}

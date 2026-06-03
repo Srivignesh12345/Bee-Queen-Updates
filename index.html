@@ -8,24 +8,25 @@
 </head>
 <body>
     <div class="container">
+
         <!-- HEADER -->
         <div class="header">
             <img src="logo.jpg" class="logo-img" alt="Bee Queen Logo">
             <h1>Bee Queen ERP</h1>
-            <p class="subtitle">App Update Portal</p>
+            <p class="subtitle">Professional Saree Business Management</p>
         </div>
 
         <!-- VERSION INFO -->
         <div class="version-card">
             <div class="version-badge">Latest Version</div>
-            <h2>Version 1.0.2</h2>
+            <h2 id="versionTitle">Version 1.0.2</h2>
             <p class="release-date">Released: <span id="currentDate"></span></p>
         </div>
 
         <!-- WHAT'S NEW -->
         <div class="whats-new">
             <h3>✨ What's New in v1.0.2</h3>
-            <ul>
+            <ul id="changelogList">
                 <li>✏️ Admin can now edit customer details</li>
                 <li>🔒 Role-based access — only Admin can add, edit & delete customers</li>
                 <li>⚡ Faster wallet & withdrawal screen loading</li>
@@ -33,6 +34,85 @@
                 <li>📤 Fixed Excel export — now works on all Android versions</li>
                 <li>🐛 Bug fixes and performance improvements</li>
             </ul>
+        </div>
+
+        <!-- VERSION COMPARISON -->
+        <div class="comparison-card">
+            <h3>📊 Version Comparison</h3>
+            <div class="table-wrap">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>v1.0.0</th>
+                            <th>v1.0.1</th>
+                            <th class="latest-col">v1.0.2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Customer Management</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                            <td class="latest-col">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Edit Customer</td>
+                            <td>❌</td>
+                            <td>❌</td>
+                            <td class="latest-col">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Role-Based Access</td>
+                            <td>❌</td>
+                            <td>❌</td>
+                            <td class="latest-col">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Excel Export</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                            <td class="latest-col">✅ Fixed</td>
+                        </tr>
+                        <tr>
+                            <td>Wallet Screen</td>
+                            <td>✅</td>
+                            <td>⚡ Faster</td>
+                            <td class="latest-col">⚡ Fastest</td>
+                        </tr>
+                        <tr>
+                            <td>Shimmer Loading</td>
+                            <td>❌</td>
+                            <td>✅</td>
+                            <td class="latest-col">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Invoice Generator</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                            <td class="latest-col">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Analytics & Charts</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                            <td class="latest-col">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Dark Mode</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                            <td class="latest-col">✅</td>
+                        </tr>
+                        <tr>
+                            <td>Push Notifications</td>
+                            <td>✅</td>
+                            <td>✅</td>
+                            <td class="latest-col">✅</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <!-- UPDATE INSTRUCTIONS -->
@@ -62,7 +142,7 @@
         </div>
 
         <!-- DOWNLOAD BUTTON -->
-        <a href="https://drive.google.com/uc?export=download&id=1OesEx6bbcV49tJIgzekpYeUQmIFlcFSe" class="download-btn" id="downloadBtn" target="_blank">
+        <a href="https://drive.google.com/uc?export=download&id=1OesEx6bbcV49tJIgzekpYeUQmIFlcFSe" class="download-btn" target="_blank">
             <span class="download-icon">📥</span>
             <span class="download-text">Download Bee Queen APK</span>
             <span class="download-size">(61 MB)</span>
@@ -72,6 +152,35 @@
         <div class="alternative">
             <h4>💡 Tip: Update Without Uninstalling</h4>
             <p>Simply download and install over the existing app. Your data will remain intact.</p>
+        </div>
+
+        <!-- PREMIUM CONCLUSION -->
+        <div class="conclusion-card">
+            <div class="conclusion-icon">👑</div>
+            <h3>Built for Bee Queen</h3>
+            <p>
+                Bee Queen ERP is a fully custom-built professional business management solution crafted exclusively for the Bee Queen saree business.
+                Every update is designed to make your workflow faster, smarter, and more secure.
+            </p>
+            <div class="conclusion-stats">
+                <div class="stat">
+                    <span class="stat-value">3</span>
+                    <span class="stat-label">Versions</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">10+</span>
+                    <span class="stat-label">Features</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">100%</span>
+                    <span class="stat-label">Custom</span>
+                </div>
+            </div>
+            <p class="conclusion-tagline">
+                🐝 Powering your business — one update at a time.
+            </p>
         </div>
 
         <!-- SUPPORT -->
@@ -88,8 +197,8 @@
             <p>© 2024 Bee Queen ERP. All rights reserved.</p>
             <p class="footer-note">Professional Saree Business Management</p>
         </div>
-    </div>
 
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
