@@ -21,3 +21,7 @@ build/
 # Environment
 .env
 .env.local
+
+# APK files — never commit to GitHub
+*.apk
+*.aab
